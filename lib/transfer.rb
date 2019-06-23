@@ -35,6 +35,7 @@ class Transfer
     if @status == "complete" && (sender.valid? && receiver.valid?)
       sender.deposit(@amount_amt_trans)
       receiver.deposit(-@amount_amt_trans)
+      @status = "reversed"
     end
   end
 end
