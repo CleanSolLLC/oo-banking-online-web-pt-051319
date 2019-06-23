@@ -16,11 +16,17 @@ class Transfer
   end
 
   def execute_transaction
-    sender.deposit(-amount)
-    receiver.deposit(amount)
-    @status = "complete"
-    @amount = 0 #to prevent another transfer
-    binding.pry
+    if sender.valid?
+        sender.deposit(-amount)
+        receiver.deposit(amount)
+        @status = "complete"
+        @amount = 0 #to prevent another transfer
+      end
+
+      if not sender.valid?
+        "Transaction rejected. Please check your account balance."
+        @status = "rejected"
+      end
   end
 
 end
