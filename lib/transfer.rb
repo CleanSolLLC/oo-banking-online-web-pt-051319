@@ -18,7 +18,7 @@ class Transfer
   def execute_transaction
     sender.deposit(-amount)
     receiver.deposit(amount)
-    @status = "completed"
+    @status = "complete"
     amount = 0 #to prevent another transfer
   end
 
