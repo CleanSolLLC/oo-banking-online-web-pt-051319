@@ -19,7 +19,7 @@ class Transfer
     sender.deposit(-amount)
     receiver.deposit(amount)
     @status = "complete"
-    amount = 0 #to prevent another transfer
+    @amount = 0 #to prevent another transfer
   end
 
 end
