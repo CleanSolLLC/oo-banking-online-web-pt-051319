@@ -24,8 +24,8 @@ class Transfer
       end
 
       if not sender.valid?
-        "Transaction rejected. Please check your account balance."
-        #@status = "rejected"
+        puts "Transaction rejected. Please check your account balance."
+        @status = "rejected"
       end
   end
 
