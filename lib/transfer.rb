@@ -16,7 +16,10 @@ class Transfer
   end
 
   def execute_transaction
-    binding.pry
+    sender.deposit(-amount)
+    receiver.deposit(amount)
+    @status = "completed"
+    amount = 0 #to prevent another transfer
   end
 
 end
