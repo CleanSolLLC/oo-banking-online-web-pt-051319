@@ -21,12 +21,13 @@ class Transfer
         receiver.deposit(amount)
         @status = "complete"
         @amount = 0 #to prevent another transfer
-      end
 
-      if not sender.valid?
+    elsif condition
+       not sender.valid?
         @status = "rejected"
-        puts "Transaction rejected. Please check your account balance."
-      end
+        "Transaction rejected. Please check your account balance."
+    end
+
   end
 
 end
