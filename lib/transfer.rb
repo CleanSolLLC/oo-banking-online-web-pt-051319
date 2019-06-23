@@ -20,6 +20,7 @@ class Transfer
     receiver.deposit(amount)
     @status = "complete"
     @amount = 0 #to prevent another transfer
+    binding.pry
   end
 
 end
