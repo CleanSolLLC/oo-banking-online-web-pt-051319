@@ -20,7 +20,7 @@ class Transfer
         sender.deposit(-amount)
         receiver.deposit(amount)
         @status = "complete"
-        @amount_amt_trans = @amount  
+        @amount_amt_trans = @amount
         @amount = 0 #to prevent another transfer
       end
 
