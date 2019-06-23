@@ -20,6 +20,7 @@ class Transfer
         sender.deposit(-amount)
         receiver.deposit(amount)
         @status = "complete"
+        @amount_amt_trans = @amount  
         @amount = 0 #to prevent another transfer
       end
 
@@ -31,8 +32,9 @@ class Transfer
   end
 
   def reverse_transfer
-    binding.pry
+    if @status == "complete" && (sender.valid? && receiver.valid?)
+      sender.deposit(@amount_amt_trans)
+      receiver.deposit(-@amount_amt_trans)
+    end
   end
-
-
 end
